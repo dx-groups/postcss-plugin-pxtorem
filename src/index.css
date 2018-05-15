@@ -1,0 +1,15 @@
+div {
+  font-size: 16px;
+  color: red;
+  background-color: bisque;
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  width: 300px;
+  height: 100px;
+  transform: rotate(7deg);
+}
+
+::placeholder {
+  color: gray;
+}
