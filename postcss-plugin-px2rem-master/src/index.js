@@ -1,7 +1,7 @@
 /**
-* respect to https://github.com/cuth/postcss-pxtorem/
-**/
-import postcss from 'postcss';
+ * respect to https://github.com/cuth/postcss-pxtorem/
+ **/
+let postcss = require('postcss');
 
 const defaultOpts = {
   rootValue: 100,
@@ -68,7 +68,7 @@ const handleIgnoreIdentifierRegx = (identifier, unit) => {
   return new RegExp(pattern, 'ig');
 };
 
-export default postcss.plugin('postcss-plugin-px2rem', options => {
+module.exports = postcss.plugin('postcss-plugin-px2rem', options => {
   const opts = { ...defaultOpts, ...options };
   let unit = 'px';
   if (isObject(opts.rootValue)) {
