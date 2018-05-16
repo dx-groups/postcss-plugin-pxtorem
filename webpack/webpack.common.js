@@ -10,8 +10,7 @@ const resolve = function(src) {
 module.exports = {
   entry: {
     app: resolve('src/index.js'),
-    // precss: ['precss'],
-
+    css: resolve('src/index.css')
   },
   output: {
     filename: '[name].bundle.js',
