@@ -1,12 +1,12 @@
-div {
-  font-size: 16dpx;
+div#app {
+  font-size: 66dpx;
   color: red;
   background-color: bisque;
   position: fixed;
   top: 100px;
   left: 100px;
-  width: 300px;
-  height: 100px;
+  width: 600dpx;
+  height: 600dpx;
   transform: rotate(7deg);
 }
 

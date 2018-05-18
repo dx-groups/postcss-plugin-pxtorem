@@ -1,3 +1,5 @@
-var aaa = 1
-var b = { aaa: aaa }
-console.log(b)
+let dpxRegx = /(\d+)(dpx)([\s]+|[;]|$)/;
+let a = '1222dpx ss'
+a.replace(dpxRegx, function() {
+  console.log(arguments)
+})
