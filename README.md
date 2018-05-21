@@ -31,7 +31,7 @@ PostCSS 会将 CSS 代码解析成包含一系列节点的抽象语法树（AST�
 安装postcss       npm install --save-dev postcss  
 安装express  
 启动文件
-```
+```javascript
 var express = require('express');
 var webpackHandle = require("./webpack/webpackHandle");
 var bodyParser = require("body-parser");
@@ -56,7 +56,7 @@ app.listen(app.get('port'), function() {
 安装webpack  
 根目录下创建webpack文件夹，webpack文件夹下创建webpack.common.js和webpack.dev.js以及webpackHandle.js
 webpack.common.js  
-```
+```javascript
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -117,7 +117,7 @@ module.exports = {
 
 ```
 webpack.dev.js
-```
+```javascript
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const webpack = require('webpack');
@@ -133,7 +133,7 @@ module.exports = merge(common, {
 });
 ```
 webpackHandle.js
-```
+```javascript
 var webpack = require('webpack');
 
 var config = require('./webpack.dev.js');
@@ -155,7 +155,7 @@ module.exports = function(app) {
 ```
 
 根目录下创建postcss.config.js作为postcss的配置文件
-```
+```javascript
 module.exports = {
   plugins: [
     require('./component'),
@@ -164,17 +164,17 @@ module.exports = {
 ```
 
 使用postcss提供的api  
-walkRules 遍历容器的后代节点，为每个规则节点调用回调。  
-walkDecls 遍历容器的后代节点，为每个声明节点调用回调。  
-insertAfter 在容器中依次插入新节点。  
-rule.append 在容器中依次插入新声明。  
-postcss.rule 新建一个规则节点  
+walkRules 遍历容器的后代节点，为每个规则节点调用回调。
+walkDecls 遍历容器的后代节点，为每个声明节点调用回调。
+insertAfter 在容器中依次插入新节点。
+rule.append 在容器中依次插入新声明。
+postcss.rule 新建一个规则节点
 
 创建方法遍历css规则，匹配其中的dpx，获取其中的值进行运算插入容器中  
 根目录下创建component文件夹，文件夹下创建index.js  
 index.js
 
-```
+```javascript
 var postcss = require('postcss');
 
 module.exports = postcss.plugin('myplugin', function myplugin(options) {
