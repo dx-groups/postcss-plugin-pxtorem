@@ -1,25 +1,41 @@
 ## 概述
-1.物理像素（physical pixel）
-一个物理像素是显示器（手机屏幕）上最小的物理显示物理单元，在操作系统的调度下，每一个设备都有自己的颜色值和亮度值。  
-2.设备独立像素（density-independent pixel）
-设备独立像素（也叫密度无关像素），可以认为是计算机坐标系统中得一个点，这个点代表一个可以由程序使用的虚拟像素（比如：css像素），然后由相关系统转换为物理像素。  
-3.设备像素比（device pixel ratio）
-设备像素比(简称dpr)定义了物理像素和设备独立像素的对应关系  
-设备像素比＝物理像素／设备独立像素 （在x方向或者y方向）
+### 像素
+需知概念：设备物理像素，设备独立像素、设备像素比、css像素
+1. 设备物理像素
+一个物理像素是显示器(手机屏幕)上最小的物理显示单元，在操作系统的调度下，每一个设备像素都有自己的颜色值和亮度值。每英寸的像素点个数
+2. 设备独立像素
+(也叫密度无关像素)，可以认为是计算机坐标系统中得一个点，这个点代表一个可以由程序使用的虚拟像素(比如：CSS 像素,只是在android机中CSS 像素就不叫”CSS 像素”了而是叫”设备独立像素” )，然后由相关系统转换为物理像素。
+3. 设备像素比
+设备像素比 = 物理像素 / 设备独立像素(device-width) // 在某一方向上，x方向或者y方向
+4. css像素
+CSS像素是Web编程的概念，指的是CSS样式代码中使用的逻辑像素。
+在不同的屏幕上(普通屏幕 vs retina屏幕)，1个css像素所呈现的大小(物理尺寸)是一致的，不同的是1个css像素所对应的物理像素个数是不一致的。
+### viewport
+需知概念：视觉视窗、布局视窗、理想视窗
+1. visual viewport (视觉视窗)
+代表浏览器可视区域的大小，宽度可以通过window.innerWidth 来获取  
+2. layout viewport (布局视窗)  
+一个较宽的值，宽度可以通过 document.documentElement.clientWidth 来获取  
+3. ideal viewport (理想视窗） 
+不需要用户缩放和横向滚动条就能正常的查看网站的所有内容的宽度
+
 ### dpr
 设备像素比DPR(devicePixelRatio)是默认缩放为100%的情况下，设备像素和CSS像素的比值  
 DPR = 设备像素 / CSS像素(某一方向上)  
 screen.width/screen.height获取理想窗口的大小  
 window.devicePixelRatio获取dpr大小  
 以iphone5为例，iphone5的CSS像素为320px\*568px，DPR是2，所以其设备像素为640px\*1136px
-
-    640(px) / 320(px)  = 2
-    1136(px) / 568(px) = 2
-    640(px)*1136(px) /  320(px)*568(px) = 4
-
+```
+640(px) / 320(px)  = 2
+1136(px) / 568(px) = 2
+640(px)*1136(px) /  320(px)*568(px) = 4
+```
 ### rem
 相对长度单位。相对于根元素(即html元素)font-size计算值的倍数  
-
+### dpx
+dpr px
+### rpx
+rpx (real px), 来表示物理像素
 ### postcss
 PostCSS 本身并不处理任何具体的任务，只有当我们为其附加各种插件之后，它才具有实用性。
 
@@ -29,8 +45,9 @@ PostCSS 会将 CSS 代码解析成包含一系列节点的抽象语法树（AST�
 
 ### 实现
 安装postcss       npm install --save-dev postcss  
-安装express  
-启动文件
+安装express
+根目录下创建app.js作为启动文件
+app.js
 ```javascript
 var express = require('express');
 var webpackHandle = require("./webpack/webpackHandle");
@@ -155,6 +172,7 @@ module.exports = function(app) {
 ```
 
 根目录下创建postcss.config.js作为postcss的配置文件
+postcss.config.js
 ```javascript
 module.exports = {
   plugins: [
@@ -173,7 +191,6 @@ postcss.rule 新建一个规则节点
 创建方法遍历css规则，匹配其中的dpx，获取其中的值进行运算插入容器中  
 根目录下创建component文件夹，文件夹下创建index.js  
 index.js
-
 ```javascript
 var postcss = require('postcss');
 
@@ -236,7 +253,9 @@ const createDecl = function(rule, prop, value) {
 
 ```
 
-参考  
+### 参考  
+[postcss api](http://api.postcss.org/postcss.html)  
 [响应式网页开发基础：DPR 与 viewport](https://zhuanlan.zhihu.com/p/26131956)  
-[等比例缩放rem](https://www.zhihu.com/question/21504656)  
-[深入postcss](http://www.w3cplus.com/preprocessor/postcss-book.html)
+[等比例缩放rem](https://www.cnblogs.com/wellsoho/p/5099623.html)  
+[postcss](http://www.w3cplus.com/preprocessor/postcss-book.html)
+[viewport的深入理解](http://www.cnblogs.com/2050/p/3877280.html)
