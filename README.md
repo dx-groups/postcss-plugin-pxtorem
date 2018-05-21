@@ -221,7 +221,7 @@ const insertDpx = function(rule, list) {
     let ruleName = `[data-dpr="${i}"] ${rule.selector}`;
     let newRule = createRule(ruleName);
     list.forEach(decl => {
-      createDecl(newRule, decl.prop, (decl.value / i) + unit);
+      createDecl(newRule, decl.prop, (decl.value * i) + unit);
     });
     rule.parent.insertAfter(rule, newRule);
   }
