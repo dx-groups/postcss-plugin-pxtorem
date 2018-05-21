@@ -1,5 +1,10 @@
+html {
+  font-size: 100px;
+}
+
 div#app {
-  font-size: 66dpx;
+  /* font-size: 66dpx; */
+  font-size: 2rem;
   color: red;
   background-color: bisque;
   position: fixed;
@@ -8,6 +13,10 @@ div#app {
   width: 600dpx;
   height: 600dpx;
   transform: rotate(7deg);
+}
+
+.test {
+  font-size: 200px;
 }
 
 span {

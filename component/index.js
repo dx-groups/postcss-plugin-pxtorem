@@ -18,9 +18,6 @@ module.exports = postcss.plugin('myplugin', function myplugin(options) {
   }
 });
 
-const declarationExists = (decls, prop, value) => decls.some(decl =>
-  decl.prop === prop && decl.value === value
-);
 
 const getDpx = (decl) => {
   let dpxReg = /(\d+)(dpx)([\s]+|[;]|$)/;
