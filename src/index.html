@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi" >
+</head>
+
+<body>
+  <div id="app">
+    abc
+  </div>
+  <div class="test">
+    abc
+  </div>
+  <script>
+    let dpr = window.devicePixelRatio;
+    document.body.setAttribute('data-dpr', dpr + "");
+
+  </script>
+</body>
+
+</html>
