@@ -9,8 +9,8 @@ const resolve = function(src) {
 
 module.exports = {
   entry: {
-    app: resolve('src/index.js'),
-    css: resolve('src/index.css')
+    app: resolve('test/index.js'),
+    css: resolve('test/index.css')
   },
   output: {
     filename: '[name].bundle.js',
@@ -19,7 +19,7 @@ module.exports = {
   plugins: [
 		new CleanWebpackPlugin([resolve('dist')]),
 		new HtmlWebpackPlugin({
-      template: resolve('src/index.html')
+      template: resolve('test/index.html')
     })
   ],
   module: {

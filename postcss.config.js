@@ -1,6 +1,6 @@
 module.exports = {
   plugins: [
-    require('./component'),
+    require('./src'),
     // require('precss'),
     // require('autoprefixer'),
     // require('postcss-plugin-px2rem'),
