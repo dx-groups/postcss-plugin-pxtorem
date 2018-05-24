@@ -1,3 +1,9 @@
+## 实现
+通过window.devicePixelRatio获取dpr，由dpr设置屏幕缩放，达到css像素等于设备像素
+```javascript
+let dpr = window.devicePixelRatio;
+<meta name="viewport" content="width=640,initial-scale=1/dpr,maximum-scale=1/dpr, minimum-scale=1/dpr,user-scalable=no">
+```
 ## 概述
 ### 像素
 需知概念：设备物理像素，设备独立像素、设备像素比、css像素
@@ -272,6 +278,7 @@ delete: 是否删除原来的dpx属性
 
 ### 参考  
 [postcss api](http://api.postcss.org/postcss.html)  
+[移动端高清、多屏适配方案](http://www.html-js.com/article/Mobile-terminal-H5-mobile-terminal-HD-multi-screen-adaptation-scheme%203041)
 [响应式网页开发基础：DPR 与 viewport](https://zhuanlan.zhihu.com/p/26131956)  
 [等比例缩放rem](https://www.cnblogs.com/wellsoho/p/5099623.html)  
 [postcss](http://www.w3cplus.com/preprocessor/postcss-book.html)
