@@ -23,28 +23,12 @@ module.exports = {
     })
   ],
   module: {
-    rules: [{
-      test: /\.css$/,
-      use: [
-        {
-          loader: 'style-loader',
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            importLoaders: 1,
-          }
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            config: {
-              path: resolve('postcss.config.js')
-            }
-          }
-        }
-    ]
-    }]
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader", "postcss-loader"]
+      }
+  ]
   },
   resolve: {
     // 可以忽略的文件类型

@@ -1,7 +1,7 @@
 {
   "name": "postcss-plugin-pxtorem",
   "version": "1.0.0",
-  "description": "基于 postcss-plugin-px2rem 添加 dpx，rpx 单位支持",
+  "description": "基于 postcss 添加 dpx 转 px 单位支持",
   "main": "index.js",
   "scripts": {
     "start": "node app.js"
