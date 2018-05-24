@@ -1,30 +1,39 @@
 var postcss = require('postcss');
 
-module.exports = postcss.plugin('myplugin', function myplugin(options) {
-  return function(root) {
-    options = options || {};
+const defaultOpts = {
+  prevName: 'data-dpr',
+  maxDpr: 3,
+  delete: true
+};
 
+
+module.exports = postcss.plugin('postcss-plugin-dpxtopx', function(options) {
+  return function(root) {
+    options = Object.assign(defaultOpts, options);
+    let insertRule = insertDpx(options.prevName, options.maxDpr);
     root.walkRules((rule) => {
-      let list = [];
+      let declList = [];
       rule.walkDecls((decl) => {
         let data = getDpx(decl);
         if (data) {
-          list.push(data);
-          decl.remove();
+          declList.push(data);
+          if (options.delete) {
+            decl.remove();
+          }
         }
       })
-      insertDpx(rule, list);
+      insertRule(rule, declList);
     })
   }
 });
 
 
 const getDpx = (decl) => {
-  let dpxReg = /(\d+)(dpx)([\s]+|[;]|$)/;
+  let regDpx = /(\d+)(dpx)([\s]+|[;]|$)/;
   let value = decl.value;
-  if (value.match(dpxReg)) {
+  if (value.match(regDpx)) {
     let num = 0;
-    value.replace(dpxReg, function(a, b) {
+    value.replace(regDpx, function(a, b) {
       num = parseFloat(b);
     })
     return {
@@ -35,16 +44,16 @@ const getDpx = (decl) => {
   return undefined;
 }
 
-const insertDpx = function(rule, list) {
-  if (!list || list.length === 0) {
+const insertDpx = (prevName, maxDpr) => (rule, declList) => {
+  if (!declList || declList.length === 0) {
     return;
   }
   let unit = 'px';
-  for (let i = 3; i > 0; i--) {
-    let ruleName = `[data-dpr="${i}"] ${rule.selector}`;
+  for (let i = maxDpr; i > 0; i--) {
+    let ruleName = `[${prevName}="${i}"] ${rule.selector}`;
     let newRule = createRule(ruleName);
-    list.forEach(decl => {
-      createDecl(newRule, decl.prop, (decl.value * i) + unit);
+    declList.forEach(decl => {
+      newRule.append({ prop: decl.prop, value: (decl.value * i) + unit });
     });
     rule.parent.insertAfter(rule, newRule);
   }
@@ -52,7 +61,4 @@ const insertDpx = function(rule, list) {
 
 const createRule = function(name) {
   return postcss.rule({ selector: name })
-}
-const createDecl = function(rule, prop, value) {
-  rule.append({ prop, value });
 }

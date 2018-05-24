@@ -1,9 +1,9 @@
 module.exports = {
   plugins: [
-    require('./src'),
-    // require('precss'),
-    // require('autoprefixer'),
-    // require('postcss-plugin-px2rem'),
-    // require('./postcss-plugin-px2rem-master/src/index')
+    require('./src')({
+      // prevName: 'test-data'
+      maxDpr: 5,
+      delete: false
+    })
   ]
 }

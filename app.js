@@ -17,5 +17,5 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.listen(app.get('port'), function() {
-    console.log(`服务启动 http://localhost: ${app.get('port')}`);
+    console.log(`服务启动 http://localhost:${app.get('port')}`);
 });
