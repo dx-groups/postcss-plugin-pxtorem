@@ -61,9 +61,9 @@ Default:
   delete: true
 }
 ```
-`prevName` 生成的前缀  
-`maxDpr`   生成的dpr的最大值  
-`delete`   是否删除匹配到的声明  
+`prevName` 生成的前缀  默认值 data-dpr
+`maxDpr`   生成的dpr的最大值  默认值 3
+`delete`   是否删除匹配到的声明  默认值 true
 
 ## 测试
 控制台输入 npm test
