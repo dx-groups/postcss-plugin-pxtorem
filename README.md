@@ -11,6 +11,9 @@ h1 {
 }
 
 // 输出
+h1 {
+  
+}
 [data-dpr="1"] h1 {
   font-size: 16px
 }
