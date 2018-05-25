@@ -1,5 +1,5 @@
 {
-  "name": "postcss-plugin-pxtorem",
+  "name": "postcss-plugin-dpxtopx",
   "version": "1.0.0",
   "description": "基于 postcss 添加 dpx 转 px 单位支持",
   "main": "index.js",
