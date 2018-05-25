@@ -11,7 +11,9 @@
     "url": "git+https://github.com/sunxhh/postcss-plugin-pxtorem.git"
   },
   "keywords": [
-    "postcss"
+    "postcss",
+    "dpx",
+    "px"
   ],
   "author": "",
   "license": "ISC",
