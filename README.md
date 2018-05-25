@@ -64,3 +64,6 @@ Default:
 `prevName` 生成的前缀  
 `maxDpr`   生成的dpr的最大值  
 `delete`   是否删除匹配到的声明  
+
+## 测试
+控制台输入 npm test

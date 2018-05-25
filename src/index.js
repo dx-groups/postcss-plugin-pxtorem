@@ -9,7 +9,7 @@ const defaultOpts = {
 
 module.exports = postcss.plugin('postcss-plugin-dpxtopx', function(options) {
   return function(root) {
-    options = Object.assign(defaultOpts, options);
+    options = Object.assign({}, defaultOpts, options || {});
     let insertRule = insertDpx(options.prevName, options.maxDpr);
     root.walkRules((rule) => {
       let declList = [];
