@@ -46,9 +46,9 @@ module.exports = {
 module.exports = {
   plugins: [
     require('postcss-plugin-dpxtopx')({
-      // prevName: 'test-data'
-      // maxDpr: 5,
-      // delete: false
+      // prevName: 'data-dpr'
+      // maxDpr: 3,
+      // delete: true
     })
   ]
 }
