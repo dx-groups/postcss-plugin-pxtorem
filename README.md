@@ -1,2 +1,72 @@
-# postcss-plugin-pxtorem
-基于 postcss-plugin-px2rem 添加 dpx，rpx 单位支持
+## 功能
+
+一个postcss插件，用来将css中的dpx 换算成px
+
+### 输入输出
+
+```css
+// 输入
+h1 {
+  font-size: 16dpx
+}
+
+// 输出
+h1 {
+  
+}
+[data-dpr="1"] h1 {
+  font-size: 16px
+}
+[data-dpr="2"] h1 {
+  font-size: 32px
+}
+[data-dpr="3"] h1 {
+  font-size: 48px
+}
+```
+
+
+### webpack配置
+webpack rules添加 postcss-loader
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader", "postcss-loader"]
+    }]
+  }
+}
+```
+
+在根目录新增 `postcss.config.js` 文件:
+
+```js
+module.exports = {
+  plugins: [
+    require('postcss-plugin-dpxtopx')({
+      // prevName: 'data-dpr'
+      // maxDpr: 3,
+      // delete: true
+    })
+  ]
+}
+```
+
+## 配置
+
+Default:
+```js
+{
+  prevName: 'data-dpr',
+  maxDpr: 3,
+  delete: true
+}
+```
+`prevName` 生成的前缀  默认值 data-dpr  
+`maxDpr`   生成的dpr的最大值  默认值 3  
+`delete`   是否删除匹配到的声明  默认值 true  
+
+## 测试
+控制台输入 npm test
