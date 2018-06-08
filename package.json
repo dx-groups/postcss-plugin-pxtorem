@@ -4,7 +4,8 @@
   "description": "基于 postcss 添加 dpx 转 px 单位支持",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test-rem": "mocha ./test/index-test.js"
   },
   "repository": {
     "type": "git",

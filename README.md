@@ -1,6 +1,6 @@
 ## 功能
 
-一个postcss插件，用来将css中的dpx 换算成px
+基于postcss-plugin-px2rem 实现的一个postcss插件，用来将css中的dpx 换算成px以及将px转换成rem
 
 ### 输入输出
 
