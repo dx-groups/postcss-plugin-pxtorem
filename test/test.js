@@ -84,7 +84,7 @@ describe('delete', () => {
 
   it('测试delete', () => {
     const expected = 
-  `.rule { font-size: 10dpx }
+  `.rule { font-size: 10px }
 [data-dpr="1"] .rule { font-size: 10px }
 [data-dpr="2"] .rule { font-size: 20px }
 [data-dpr="3"] .rule { font-size: 30px }`;
