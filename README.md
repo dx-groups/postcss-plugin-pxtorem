@@ -94,24 +94,19 @@ module.exports = {
 `maxDpr`   生成的dpr的最大值  默认值 3  
 `delete`   是否删除匹配到的声明  默认值 true  
 `pxtorem`  是否需要讲px转化成rem 默认值 true
-- `rootValue` (Number|Object) The root element font size. Default is 100.
-    - If rootValue is an object, for example `{ px: 50, rpx: 100 }`, it will
-    replace rpx to 1/100 rem , and px to 1/50 rem.
-- `unitPrecision` (Number) The decimal numbers to allow the REM units to grow to.
-- `propWhiteList` (Array) The properties that can change from px to rem.
-    - Default is an empty array that means disable the white list and enable all properties.
-    - Values need to be exact matches.
-- `propBlackList` (Array) The properties that should not change from px to rem.
-    - Values need to be exact matches.
-- `selectorBlackList` (Array) The selectors to ignore and leave as px.
-    - If value is string, it checks to see if selector contains the string.
-        - `['body']` will match `.body-class`
-    - If value is regexp, it checks to see if the selector matches the regexp.
-        - `[/^body$/]` will match `body` but not `.body`
-- `ignoreIdentifier` (Boolean/String)  a way to have a single property ignored, when ignoreIdentifier enabled, then `replace` would be set to `true` automatically.
-- `replace` (Boolean) replaces rules containing rems instead of adding fallbacks.
-- `mediaQuery` (Boolean) Allow px to be converted in media queries.
-- `minPixelValue` (Number) Set the minimum pixel value to replace.
+`rootValue` (Number\Object)根元素字体大小。默认值为100。-如果rootValue是一个对象，例如`{px：50，rpx：100}‘，它将替换RPX到1/100 rem，将px替换为1/50 rem.
+
+`unitPrecision` (Number)十进制数，允许REM单元保留几位小数  
+`propWhiteList` (Array)可以从px更改为rem的属性。-默认值是一个空数组，它意味着禁用白名单并启用所有属性。-值必须是完全匹配的。  
+`propBlackList` (Array)不应从px更改为rem的属性。-值需要精确匹配.
+
+`selectorBlackList` (Array) 如果值是字符串，则检查选择器是否包含字符串。-`[body]`将匹配`.body-class`-如果值是regexp，则检查选择器是否与regexp匹配。`[/^body$/]`将匹配`body`，但不匹配`.body`。  
+
+
+`ignoreIdentifier` (Boolean/String)  一种将单个属性忽略的方法，如果启用了不命名标识符，则“replace”将自动设置为“true”。  
+`replace` (Boolean) 取代包含rems的规则，而不是添加后备项。  
+`mediaQuery` (Boolean) 允许在媒体查询中转换PX。  
+`minPixelValue` (Number) 设置要替换的最小像素值。  
 ## 测试
 控制台输入 npm run test 测试dpx转px  
 控制台输入 npm run test-rem 测试px转rem
