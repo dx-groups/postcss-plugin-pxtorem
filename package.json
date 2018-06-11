@@ -9,14 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sunxhh/postcss-plugin-pxtorem.git"
+    "url": "git@github.com:sunxhh/postcss-plugin-pxtorem.git"
   },
   "keywords": [
     "postcss",
     "dpx",
     "px"
   ],
-  "author": "",
+  "author": {
+    "name": "sunxh",
+    "email": "997854244@qq.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sunxhh/postcss-plugin-pxtorem/issues"
@@ -30,5 +33,7 @@
     "expect": "^23.0.0",
     "mocha": "^5.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "postcss-plugin-pxtorem": "0.0.1"
+  }
 }
