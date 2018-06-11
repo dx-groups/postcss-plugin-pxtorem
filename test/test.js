@@ -2,7 +2,7 @@ const postcss = require('postcss');
 const expect = require('expect');
 const dpxtopx = require('../index.js');
 
-const basicCSS = '.rule { font-size: 10dpx }';
+const basicDpxCSS = '.rule { font-size: 10dpx }';
 describe('dpxtopx', () => {
 
   it('测试基础转化dpx为px', () => {
@@ -20,7 +20,7 @@ describe('dpxtopx', () => {
 [data-dpr="3"] .rule {
     font-size: 30px
 }`;
-    const processed = postcss(dpxtopx(options)).process(basicCSS).css;
+    const processed = postcss(dpxtopx(options)).process(basicDpxCSS).css;
     
     expect(processed).toBe(expected);
   });
@@ -44,7 +44,7 @@ describe('prefix', () => {
 [test="3"] .rule {
     font-size: 30px
 }`;
-    const processed = postcss(dpxtopx(options)).process(basicCSS).css;
+    const processed = postcss(dpxtopx(options)).process(basicDpxCSS).css;
     
     expect(processed).toBe(expected);
   });
@@ -71,7 +71,7 @@ describe('maxDpr', () => {
 [data-dpr="4"] .rule {
     font-size: 40px
 }`;
-    const processed = postcss(dpxtopx(options)).process(basicCSS).css;
+    const processed = postcss(dpxtopx(options)).process(basicDpxCSS).css;
     expect(processed).toBe(expected);
   });
 });
@@ -88,7 +88,7 @@ describe('delete', () => {
 [data-dpr="1"] .rule { font-size: 10px }
 [data-dpr="2"] .rule { font-size: 20px }
 [data-dpr="3"] .rule { font-size: 30px }`;
-    const processed = postcss(dpxtopx(options)).process(basicCSS).css;
+    const processed = postcss(dpxtopx(options)).process(basicDpxCSS).css;
     expect(processed).toBe(expected);
   });
 });

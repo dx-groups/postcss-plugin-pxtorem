@@ -108,5 +108,5 @@ module.exports = {
 `mediaQuery` (Boolean) 允许在媒体查询中转换PX。  
 `minPixelValue` (Number) 设置要替换的最小像素值。  
 ## 测试
-控制台输入 npm run test 测试dpx转px  
+控制台输入 npm run test 测试dpx转px以及px转rem
 控制台输入 npm run test-rem 测试px转rem

@@ -1,7 +1,7 @@
 {
-  "name": "postcss-plugin-dpxtopx",
-  "version": "1.0.0",
-  "description": "基于 postcss 添加 dpx 转 px 单位支持",
+  "name": "postcss-plugin-pxtorem",
+  "version": "0.0.1",
+  "description": "基于postcss-plugin-px2rem 实现的一个postcss插件，用来将css中的dpx 换算成px以及将px转换成rem.保留了postcss-plugin-px2rem的所有配置。",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
@@ -17,7 +17,7 @@
     "px"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sunxhh/postcss-plugin-pxtorem/issues"
   },
