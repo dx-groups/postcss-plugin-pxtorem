@@ -97,7 +97,7 @@ module.exports = {
 `pxtorem`  (Boolean)是否需要讲px转化成rem 默认值 true
 `rootValue` (Number\Object)根元素字体大小。默认值为100。-如果rootValue是一个对象，例如`{px：50，rpx：100}‘，它将替换RPX到1/100 rem，将px替换为1/50 rem.
 
-`unitPrecision` (Number)十进制数，允许rem保留几位小数  
+`unitPrecision` (Number)允许rem保留几位小数  
 `propWhiteList` (Array)可以从px更改为rem的属性。默认值是一个空数组，白名单并启用所有属性。值必须是完全匹配的。  
 `propBlackList` (Array)不应从px更改为rem的属性。值需要完全匹配.
 
@@ -110,4 +110,3 @@ module.exports = {
 `minPixelValue` (Number) 设置要替换的最小像素值。  
 ## 测试
 控制台输入 npm run test 测试dpx转px以及px转rem
-控制台输入 npm run test-rem 测试px转rem
