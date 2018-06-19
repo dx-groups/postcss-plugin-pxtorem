@@ -2,10 +2,13 @@ const postcss = require('postcss');
 const expect = require('expect');
 const dpxtopx = require('../index.js');
 
-const basicCSS = '.rule { font-size: 10dpx }';
+const basicDpxCSS = '.rule { font-size: 10dpx }';
 describe('dpxtopx', () => {
 
   it('测试基础转化dpx为px', () => {
+    const options = {
+      pxtorem: false
+    };
     const expected = 
   `.rule { }
 [data-dpr="1"] .rule {
@@ -17,17 +20,18 @@ describe('dpxtopx', () => {
 [data-dpr="3"] .rule {
     font-size: 30px
 }`;
-    const processed = postcss(dpxtopx()).process(basicCSS).css;
+    const processed = postcss(dpxtopx(options)).process(basicDpxCSS).css;
     
     expect(processed).toBe(expected);
   });
 });
 
-describe('prevName', () => {
+describe('prefix', () => {
 
   it('测试prevName', () => {
     const options = {
-      prevName: "test"
+      prefix: "test",
+      pxtorem: false
     };
     const expected = 
   `.rule { }
@@ -40,7 +44,7 @@ describe('prevName', () => {
 [test="3"] .rule {
     font-size: 30px
 }`;
-    const processed = postcss(dpxtopx(options)).process(basicCSS).css;
+    const processed = postcss(dpxtopx(options)).process(basicDpxCSS).css;
     
     expect(processed).toBe(expected);
   });
@@ -50,7 +54,8 @@ describe('maxDpr', () => {
 
   it('测试最大dpr', () => {
     const options = {
-      maxDpr: 4
+      maxDpr: 4,
+      pxtorem: false
     };
     const expected = 
   `.rule { }
@@ -66,23 +71,24 @@ describe('maxDpr', () => {
 [data-dpr="4"] .rule {
     font-size: 40px
 }`;
-    const processed = postcss(dpxtopx(options)).process(basicCSS).css;
+    const processed = postcss(dpxtopx(options)).process(basicDpxCSS).css;
     expect(processed).toBe(expected);
   });
 });
 
 describe('delete', () => {
   const options = {
-    delete: false
+    delete: false,
+    pxtorem: false
   };
 
   it('测试delete', () => {
     const expected = 
-  `.rule { font-size: 10dpx }
+  `.rule { font-size: 10px }
 [data-dpr="1"] .rule { font-size: 10px }
 [data-dpr="2"] .rule { font-size: 20px }
 [data-dpr="3"] .rule { font-size: 30px }`;
-    const processed = postcss(dpxtopx(options)).process(basicCSS).css;
+    const processed = postcss(dpxtopx(options)).process(basicDpxCSS).css;
     expect(processed).toBe(expected);
   });
 });
