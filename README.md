@@ -42,7 +42,7 @@ h1 {
 ### 安装
 npm install --save-dev postcss-plugin-pxtorem
 
-### 配置
+### 配置使用
 ###### webpack配置
 webpack rules添加 postcss-loader配置
 ```js
